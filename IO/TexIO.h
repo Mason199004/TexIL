@@ -10,16 +10,26 @@
 typedef struct TexIL_TexIO_TexHeader
 {
 	uint8_t MAGIC[5]; //TexIL in ascii
-	uint8_t R1; //
+	uint8_t DEPENDENCIES_COUNT;
 	uint8_t R2; // RESERVED
 	uint8_t R3; //
 	uint32_t NumLayers;
 	float SuggestedAR; //can be 0 for any
 	uint64_t PAD1;
-	uint64_t PAD2;
+	uint32_t PAD2;
+	uint32_t VERSION;
 	uint8_t NAME[64];
 } TexHeader;
 _Static_assert(sizeof(TexHeader) == 96, "TexIO.h: TexIL_TexIO_TexHeader is incorrectly sized!");
+
+typedef struct TexIL_TexIO_TexDependency
+{
+	uint32_t ID;
+	uint32_t WIDTH;
+	uint32_t HEIGHT;
+	uint8_t NAME[64];
+} TexDependency;
+
 
 typedef struct TexIL_TexIO_DataBlock
 {
@@ -31,6 +41,7 @@ typedef struct TexIL_TexIO_TexFile
 {
 	TexHeader Header;
 	DataBlock Data;
+	TexDependency* Deps;
 } TexFile;
 
 TexFile TexIL_TexIO_ReadFromDisk(char* path);

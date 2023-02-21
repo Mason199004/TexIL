@@ -9,13 +9,15 @@
 //layer based image generator/manipulator
 /*
  * 00 - NOP
- * 01 - SETLAYER, sets current working layer, byte layer
- * 02 - MERGE, merges one layer with another using a blend mode,byte target_layer byte source_layer byte blendmode
+ * 01 - SETLAYER, sets current working layer, uint32 layer
+ * 02 - MERGE, merges one layer with another using a blend mode,uint32 target_layer uint32 source_layer byte blendmode
  * 03 - FLATTEN, flattens all layers onto layer 0
  * 04 - TRANSFORM, transforms the current layer, vec2 translation float rotation vec2 scale
  * 05 - GEN, generate a pattern, noise, or anything else, byte pattern_type other_args...
  * 06 - DISTORT, distort current layer,byte distortion_type other_args...
  * */
+
+
 
 typedef struct TexIL_TexVM_TexImage
 {
