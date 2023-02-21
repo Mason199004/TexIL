@@ -73,12 +73,18 @@ TexImage TexIL_TexVM_ExecuteBytecode(VM* vm, uint32_t Width, uint32_t Height)
 								((uint8_t*)(vm->Layers[dest].RGBAPTR + (i * Height + j)))[3] += ((uint8_t*)(vm->Layers[source].RGBAPTR + (i * Height + j)))[3];
 							}
 						}
+						vm->ILIndex += 9;
 						break;
 				}
 				break;
-			case 0x03:
+			case 0x03: //flatten all layers TODO
 				break;
-			
+			case 0x04: //transform layer TODO
+				break;
+			case 0x05: //generate pattern
+				uint8_t pattern = vm->IL[vm->ILIndex + 1];
+
+
 		}
 	}
 }
