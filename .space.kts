@@ -47,7 +47,7 @@
                 }
           	  
         }}
-    job("build-windows"){
+    job("build-macos"){
         container("macos")
         {
         	 
