@@ -3,4 +3,4 @@ project(TexIL C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_library(TexIL TexIL.c VM/TexVM.h)
+add_library(TexIL TexIL.c VM/TexVM.h IO/TexIO.h VM/TexVM.c)
