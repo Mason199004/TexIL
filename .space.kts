@@ -4,97 +4,76 @@
 * For more info, see https://www.jetbrains.com/help/space/automation.html
 */
 
-job("build") {
-    parallel {
+
+    job("build-ubuntu") {
     	container("ubuntu")
         {
-        	  sequential 
-          	  {
+        	  
                 shellScript
                 {
                 	content = """
                  	cmake -B ./build
-                 """
-                }
-                shellScript
-                {
-                	content = """
+              
                  	cmake --build ./build
                  """
                 }
-          	  }
+          	  
         }
+        }
+    job("build-alpine"){
         container("alpine")
         {
-        	  sequential 
-          	  {
+        	 
                 shellScript
                 {
                 	content = """
                  	cmake -B ./build
-                 """
-                }
-                shellScript
-                {
-                	content = """
+                 
                  	cmake --build ./build
                  """
                 }
-          	  }
-        }
+          	  
+        }}
+    job("build-manjaro"){
         container("manjaro")
         {
-        	  sequential 
-          	  {
+        	  
                 shellScript
                 {
                 	content = """
                  	cmake -B ./build
-                 """
-                }
-                shellScript
-                {
-                	content = """
                  	cmake --build ./build
                  """
                 }
-          	  }
-        }
+          	  
+        }}
+    job("build-windows"){
         container("macos")
         {
-        	  sequential 
-          	  {
+        	 
                 shellScript
                 {
                 	content = """
                  	cmake -B ./build
-                 """
-                }
-                shellScript
-                {
-                	content = """
+                 
                  	cmake --build ./build
                  """
                 }
-          	  }
-        }
+          	  
+        }}
+    job("build-windows"){
         container("windows")
         {
-        	  sequential 
-          	  {
+        	  
                 shellScript
                 {
                 	content = """
                  	cmake -B ./build
-                 """
-                }
-                shellScript
-                {
-                	content = """
+                 
                  	cmake --build ./build
                  """
                 }
-          	  }
+          	  
         }
     }
-}
+
