@@ -25,8 +25,8 @@ _Static_assert(sizeof(TexHeader) == 96, "TexIO.h: TexIL_TexIO_TexHeader is incor
 typedef struct TexIL_TexIO_TexDependency
 {
 	uint32_t ID;
-	uint32_t WIDTH;
-	uint32_t HEIGHT;
+	float WIDTH;
+	float HEIGHT;
 	uint8_t NAME[64];
 } TexDependency;
 
