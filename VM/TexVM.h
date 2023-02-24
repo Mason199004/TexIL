@@ -18,23 +18,27 @@
  * */
 
 
-
+/**
+ * Raw image data
+ */
 typedef struct TexIL_TexVM_TexImage
 {
-	uint32_t WIDTH;
-	uint32_t HEIGHT;
-	uint32_t* RGBAPTR;
+	uint32_t WIDTH; ///Width of the image
+	uint32_t HEIGHT; ///Height of the image
+	uint32_t* RGBAPTR; ///Pointer to raw pixel data in RGBA format
 } TexImage;
-
+/**
+ * Object containing IL bytecode as well as other important information to be used to generate image
+ */
 typedef struct TexIL_TexVM_VM
 {
-	uint32_t ILIndex;
-	uint32_t ILSize;
-	uint32_t LayerIndex;
-	uint32_t NumLayers;
-	float SuggestedAR;
-	TexImage* Layers;
-	uint8_t* IL;
+	uint32_t ILIndex; ///Current index into the IL
+	uint32_t ILSize; ///Total size of all IL bytes
+	uint32_t LayerIndex; ///Current index into Layers
+	uint32_t NumLayers; ///Number of Layers
+	float SuggestedAR; ///Suggested aspect ratio of image to be produced
+	TexImage* Layers; ///Pointer to Layer Array
+	uint8_t* IL; ///Pointer to IL bytecode
 } VM;
 
 VM* TexIL_TexVM_CreateVM(TexFile file);
