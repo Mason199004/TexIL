@@ -74,7 +74,7 @@ TexImage TexIL_TexVM_ExecuteBytecode(VM* vm, uint32_t Width, uint32_t Height)
 		uint32_t loop = (Height * Width * 4) / 16;
 		uint32_t extra = (Height * Width * 4) % 16;
 		for (int j = 0; j < loop; ++j) {
-			_mm_storeu_si128((__m128i_u *) (((uint8_t *) vm->Layers[i].RGBAPTR) + (j * 16)), reg);
+			_mm_storeu_si128( (((uint8_t *) vm->Layers[i].RGBAPTR) + (j * 16)), reg);
 		}
 		for (int j = 0; j < extra; ++j) {
 			vm->Layers[i].RGBAPTR[loop + j] = 0;
