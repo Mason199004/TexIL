@@ -1,8 +1,8 @@
 //
 // Created by Mason on 2/20/2023.
 //
-#include <malloc.h>
-#include <memory.h>
+#include <stdlib.h>
+#include <string.h>
 #include "TexVM.h"
 #include <immintrin.h>
 #include "../IO/TexIO.h"
